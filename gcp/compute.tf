@@ -1,13 +1,3 @@
-resource "tls_private_key" "pk" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
-resource "key_pair" "kp" {
-  key_name   = "myKey"      
-  public_key = tls_private_key.pk.public_key_openssh
-}
-
 resource "random_id" "instance_id_1" {
  byte_length = 8
 }
@@ -39,7 +29,7 @@ resource "google_compute_instance" "vm_1" {
   }
  
  metadata = {
-   ssh-keys = tls_private_key.pk.public_key_openssh
+   ssh-keys = "key"
  }
 
  network_interface {
