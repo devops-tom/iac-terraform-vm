@@ -8,6 +8,7 @@ resource "google_compute_firewall" "ssh-in-firewall" {
   name    = "firewall-ssh-in"
   network = var.name
   depends_on = [google_compute_network.vpc]
+  source_ranges = ["0.0.0.0/0"]
 
   allow {
     protocol = "tcp"
