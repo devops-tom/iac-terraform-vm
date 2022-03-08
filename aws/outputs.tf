@@ -1,4 +1,4 @@
-output "tls_private_key_output"
-{ 
-    value = private_key.private_key_pem 
+
+output "private_key" {
+  value = data.aws_key_pair.generated_key.private_key_pem
 }
