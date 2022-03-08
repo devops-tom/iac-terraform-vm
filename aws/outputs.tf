@@ -1,4 +1,4 @@
-output "tls_private_key"
+output "tls_private_key_output"
 { 
-     value = tls_private_key.private_key_pem 
+    value = private_key.private_key_pem 
 }
